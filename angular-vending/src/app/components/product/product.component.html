@@ -1,0 +1,19 @@
+
+<h1>WSECU Vending Machine</h1>
+
+<div *ngFor="let product of products; index as i">
+    <p>
+        {{product.name}}, {{product.cost}}, ({{product.count}} available)
+    </p>
+
+    <input type="number" [(ngModel)]="counts[i]" min="0" max="{{product.count}}">
+</div>
+
+<button (click)="buy()">Buy</button>
+
+<div *ngIf="errorMessage" class="error">
+    {{errorMessage}}
+</div>
+
+<!--TODO: button to see entire ledger-->
+<!--TODO: button and text box to see a single transaction-->
